@@ -1,0 +1,9 @@
+<a 
+    class="btn {% if action.classes %} {{ action.classes|join:' '}} {% endif %} btn-default"
+        href="{{ action.get_link_url }}"
+        title="{{ action.verbose_name }}">
+        {% if action.icon != None %}
+          <span class="fa fa-{{ action.icon }}"></span>
+        {% endif %}
+    {{ action.verbose_name }}
+</a>

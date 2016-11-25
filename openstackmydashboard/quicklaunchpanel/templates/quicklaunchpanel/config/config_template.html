@@ -1,0 +1,20 @@
+[default]
+;name = 'test_vm'
+;availability_zone = {%if availability_zones|length == 1 %}{{ availability_zones.0 }}{% else %}{% for z in availability_zones %} | {{ z }}{% endfor %}{% endif %}
+;count=1
+;image = {%if images|length == 1 %}{{ images.0 }}{% else %}{% for image in images %} | {{ image }}{% endfor %}{% endif %}
+;min_ram = 512MB
+;cpu = 2
+;min_storage = 2GG:0GB (rootdisk:ephemeral)
+
+;ip=network:ip-range{% for network in internal_networks %}{% for subnet in network.subnets %}
+;ip = {{ network.name }}:{{ subnet.cidr }}:{{ subnet.cidr }}
+{% endfor%}{% endfor%}
+;float-ip=network:ip-range{% for network in external_networks %}{% for subnet in network.subnets %}
+;float-ip = {{ network.name }}:{{ subnet.cidr }}:{{ subnet.cidr }}{% endfor%}{% endfor%}
+
+[vm:1]
+;config here
+
+[vm:2]
+;config here
