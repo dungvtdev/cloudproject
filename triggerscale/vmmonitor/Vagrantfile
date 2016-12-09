@@ -1,0 +1,19 @@
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'libvirt'
+
+Vagrant.configure("2") do |config|
+  config.vm.provider :libvirt do |libvirt|
+    # libvirt.host = 'vm-monitoring'
+    libvirt.uri = 'qemu+unix:///system'
+    libvirt.driver = 'kvm'
+    libvirt.storage_pool_name = 'vm_pool1'
+    libvirt.memory = 1024
+    # libvirt.connect_via_ssh = false
+  end
+
+  config.vm.define :monitor_vm do |machine|
+	  machine.vm.box = 'monitoring-test'
+    # machine.vm.hostname = "vm-monitoring"
+    # machine.vm.network "forwarded_port", guest: 22, host: 22
+    # machine.vm.network :private_network, :ip => "192.168.122.22"
+  end
+end

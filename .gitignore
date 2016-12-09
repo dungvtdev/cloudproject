@@ -4,5 +4,5 @@
 
 # lib
 /horizon/
-/vm/*
-!/vm/Vagrantfile
+**/vmmonitor/*
+!**/vmmonitor/Vagrantfile
