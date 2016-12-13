@@ -8,8 +8,8 @@
 !**/vmmonitor/Vagrantfile
 
 # vagrant
-.vagrant
+.vagrant/
 
 # ide
-.vscode
-.idea
+.vscode/
+.idea/
