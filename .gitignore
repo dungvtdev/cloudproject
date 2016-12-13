@@ -6,3 +6,10 @@
 /horizon/
 **/vmmonitor/*
 !**/vmmonitor/Vagrantfile
+
+# vagrant
+.vagrant
+
+# ide
+.vscode
+.idea
